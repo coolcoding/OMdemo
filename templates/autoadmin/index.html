@@ -1,165 +1,130 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-
-      @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
-        .navbar-text.pull-right {
-          float: none;
-          padding-left: 5px;
-          padding-right: 5px;
-        }
-      }
-    </style>
-    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">Username</a>
-            </p>
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{sys_name}}</title>
+<meta  name="keywords" content="{{system_name}} " />
+<link href="/static/autoadmin/css/common.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="/static/autoadmin/js/prototype.js"></script>
+<script language="javascript" charset="utf-8" src="/static/autoadmin/js/ymPrompt.js"></script>
+<link href="/static/autoadmin/css/skin/black/ymPrompt.css" rel="stylesheet" type="text/css">
+<script language="javascript" charset="utf-8" src="/static/autoadmin/js/bash.js"></script>
+</head>
+<body onload="hiddenDIV('operate');">
+<div id="systemWorking" style="z-index:100; position:absolute;display:none;left:40%;top:40%"><table width="250" height="20" border="0" cellpadding="0" cellspacing="1" ><tr><td align="center" valign="middle"><img src="/static/autoadmin/images/loading.gif" align=center></td></tr></table></div>
+<table class="top_bottom" cellpadding="3" cellspacing="1">
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" width="35%"><div align="center"><font class="baner_font">OMdemo</font>
+    </div></td>
+    <td align="left" width="65%">
+    <div class="select_border"> 
+    <div class="container">
+      <select name="modules" id="modules" onChange="loadmoduleinfo(this.value)" class="select">
+        <option value="-1">正在加载...</option>
+      </select>
     </div>
+     </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+</table>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->
+<table width="200" height="64" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
 
-      <hr>
+<table height="500" width="500" border="0" align="center" cellpadding="3" cellspacing="0" id="maintables">
+ <form action="" method="get" name="systemForm">
+  <tr bgcolor="#eeeeee">
+  <td width="150" rowspan="3" valign="top" bgcolor="#eeeeee">
 
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
+  <table width="99%"  border="0" cellspacing="1" cellpadding="0">
+    <tr>
+      <td>
+      <select name="serverclass" id="serverclass" onChange="submitleave2(this.value)" class="sys_server_select" size="8" multiple>
+        <option value="-1">正在加载...</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  
+      <select name="serverAppclass" id="serverAppclass" onChange="submitleave3(this.value)" class="sys_server_select" size="8" multiple>
+      <option value="-1">请选择应用类别</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br>
+        <select name="serverApplist" size="15" multiple class="sys_server_select" id="serverApplist" style="font-weight:bold; ">
+      </select>
+      </td>
+    </tr>
+  </table>
+  
+  </td>
+  <td height="60" align="center" bgcolor="#eeeeee"><table width="95%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        <fieldset> 
+            <legend><span id="module_name"> ---模块操作区--- </span>[<img src='/static/autoadmin/images/02461211.gif' align='absmiddle' onmouseover="displayDIV('operate'); return false" onmouseout="hiddenDIV('operate'); return false">]
+            <div id="operate" style="filter:Alpha(opacity=90);display:none;position:absolute; top:155px; left:auto; width:400px;BORDER-RIGHT: 2px outset; BORDER-TOP: 1px outset; BACKGROUND: #eeeeee; BORDER-LEFT: 1px outset; BORDER-BOTTOM: 2px outset; text-align:left;"><table cellpadding="3" cellspacing="1"><tr><td id="module_caption"></td></tr></table></div>
+            </legend>
+              <table width="90%" height="30"  border="0" cellpadding="3" cellspacing="0">
+                <tr>
+                  <td width="50%"><div id="module_extend"></div></td>
+                  <td align="center">
+                  <input type="button" name="Submit_run" value="运  行" id="sys_run_button" onClick="return submitmodule();"> 
+                  <input type="button" name="Submit_ref" value="刷  屏" id="sys_run_button" onClick="javascript:$('placeholder').innerHTML ='';">
+                  <input type="button" name="Submit_add" value="添加模块" id="sys_add_button" onClick="javascript:window.location.href='/autoadmin/module_add/';">
+                  <input type="button" name="Submit_add" value="安全审计" id="sys_add_button" onClick="javascript:window.location.href='/omaudit/';">
+                  </td>
+                </tr>
+              </table>
+        </fieldset>       
+      </td>
+    </tr>
+  </table>
 
-    </div><!--/.fluid-container-->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
-
-  </body>
+  </td>
+  </tr>
+  <tr>
+    <td height="1" valign="top" bgcolor="#eeeeee"></td>
+  </tr>
+  <tr>
+    <td valign="top" align="center" bgcolor="#eeeeee">
+    <table width="95%" border="0" cellspacing="3" cellpadding="0" bgcolor="#000000">
+      <tr>
+        <td align="left">
+        <font class="ajaxmodulerunresult">[user@omserver]# <img src='/static/autoadmin/images/cursor_f01.gif' align='absmiddle'></font><br>
+        <div class="ajaxmodulerunresult" id="placeholder" style="height:430px;OVERFLOW-y:auto;font-family: Verdana, Arial,Vrinda,Tahoma;"></div>    
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <input type="hidden" name="ModuleID" id="ModuleID" value="">
+  <input type="hidden" name="ModuleName" id="ModuleName" value="">
+  </form>
+</table>
+<br>
+<table class="down_bottom" cellpadding="3" cellspacing="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+ <script language="javascript">
+    submitleavel();
+    loadmodule();
+ </script>
 </html>
-

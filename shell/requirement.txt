@@ -1,0 +1,7 @@
+django
+MySQL-python
+rpyc
+uwsgi
+pcre
+Nginx
+django-debug-toolbar
