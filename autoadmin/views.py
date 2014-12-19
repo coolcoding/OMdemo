@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response
 from autoadmin.models import ModuleList,ServerList,ServerAppCateg,ServerFunCateg
 from django.core.paginator  import Paginator,InvalidPage,EmptyPage
 from public import *
-
+from django.utils.log import logger
 
 def index(request):
     d = {'sys_name': 'python auto operation system'}

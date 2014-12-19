@@ -10,6 +10,9 @@ import os,sys
 sysdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(os.sep.join((sysdir,'modules/'+AUTO_PLATFORM)))
 
+print sys.path
+from Mid_1001 import Modulehandle
+
 class ManageServer(Service):
 
     def exposed_login(self,user,passwd):
@@ -41,6 +44,7 @@ class ManageServer(Service):
 
         mid = 'Mid_' + self.ModuleId
         importstring = 'from '+mid+' import Modulehandle'
+        print importstring
 
         try:
             exec importstring

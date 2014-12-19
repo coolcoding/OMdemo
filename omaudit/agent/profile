@@ -51,16 +51,16 @@ export HISTFILE=$HOME/.bash_history
 export HISTSIZE=1200
 export HISTFILESIZE=1200
 export HISTCONTROL=ignoredups
-export HISTTIMEFORMAT="`whoami` %F %T"
-export PROMPT_COMMAND="history -a;history -c;history -r;"'/home/omaudit_agent.py $(history 1)'
+export HISTTIMEFORMAT="`whoami` %F %T "
+export PROMPT_COMMAND="history -a;history -c;history -r;"'/data/www/OMdemo/omaudit/agent/omaudit_agent.py $(history 1)'
 shopt -s histappend
 typeset -r PROMPT_COMMAND
 typeset -r HISTTIMEFORMAT
-if [ "$HISTCONTROL" = "ignorespace" ] ; then
-    export HISTCONTROL=ignoreboth
-else
-    export HISTCONTROL=ignoredups
-fi
+#if [ "$HISTCONTROL" = "ignorespace" ] ; then
+#    export HISTCONTROL=ignoreboth
+#else
+#    export HISTCONTROL=ignoredups
+#fi
 
 export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
 
