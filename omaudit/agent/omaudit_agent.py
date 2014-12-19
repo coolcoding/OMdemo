@@ -38,11 +38,12 @@ def pull_history(http_get_param=''):
         http_client = httplib.HTTPConnection(OMSERVER_ADDRESS, 80)
         http_client.request('GET',http_get_param)
         response = http_client.getresponse()
-        print response.status
+#        print response.status
         if response.status != 200:
             logging.error('response http status error:'+str(response.status))
             sys.exit()
         http_content = response.read().strip()
+#        print http_content
         if http_content != 'OK':
             logging.error('response http content error:'+str(http_content))
             sys.exit()
@@ -69,5 +70,5 @@ for i in range(5,len(sys.argv)):
 
 
 uri = '/omaudit/omaudit_pull/?history_id=%s&history_ip=%s&history_user=%s&history_datetime=%s&history_command=%s' % (hist_id,sys_ip,sys_user,hist_date+urllib.quote(' ')+hist_time,urllib.quote(hist_command.strip()))
-#uri = '/omaudit/omaudit_pull/'
+#print uri
 pull_history(uri)

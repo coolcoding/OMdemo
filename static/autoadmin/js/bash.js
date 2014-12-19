@@ -333,6 +333,7 @@ function submitaudit()
 	function showResponse(originalRequest)
 	{		
 		eval("var resultString='"+originalRequest.responseText+"'"); 
+        alert(resultString)
 		var	soojs_history_string="";
 		var objarray=resultString.split("@@"); 
 
