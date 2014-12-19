@@ -4,8 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from autoadmin.models import ModuleList,ServerList,ServerAppCateg,ServerFunCateg
 from django.core.paginator  import Paginator,InvalidPage,EmptyPage
-
-
+from public import *
 
 
 def index(request):
@@ -80,13 +79,40 @@ def server_list(request):
 
 def module_run(request):
     import rpyc
+    from cPickle import loads
+    put_string = ''
+    if not 'ModuleID' in request.GET:
+        Module_Id = ""
+    else:
+        Module_Id = request.GET['ModuleID']
+        put_string+=Module_Id+"@@"
+
+    if not 'hosts' in request.GET:
+        Hosts = ""
+    else:
+        Hosts = request.GET['hosts']
+        put_string+=Hosts+"@@"
+
+    if not 'sys_param_1' in request.GET:
+        Sys_param_1 = ""
+    else:
+        Sys_param_1 = request.GET['sys_param_1']
+        put_string+=Sys_param_1+"@@"
+
+    if not 'sys_param_2' in request.GET:
+        Sys_param_2 = ""
+    else:
+        Sys_param_2 = request.GET['sys_param_2']
+        put_string+=Sys_param_2+"@@"
     try:
         conn = rpyc.connect(host='127.0.0.1', port=11511)
         conn.root.login('OMuser','123456')
     except Exception,e:
         logger.error('connect rpyc server error:'+str(e))
         return HttpResponse('connect rpyc server error:'+str(e))
-
-    return HttpResponse(request.GET.items())
+    put_string = tencode(put_string,SECRET_KEY)
+    print SECRET_KEY
+    res = tdecode(conn.root.Runcommands(put_string),SECRET_KEY)
+    return HttpResponse(res)
 
 

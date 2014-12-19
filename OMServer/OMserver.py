@@ -4,11 +4,11 @@ from rpyc.utils.server import ThreadedServer
 from config import *
 import logging
 from libraries import *
-import os
+import os,sys
 
 
 sysdir = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(os.sep.join(sysdir,'modules/'+AUTO_PLATFORM))
+sys.path.append(os.sep.join((sysdir,'modules/'+AUTO_PLATFORM)))
 
 class ManageServer(Service):
 
@@ -31,13 +31,13 @@ class ManageServer(Service):
         except:
             return tencode('Invalid login!', SECRET_KEY)
 
-        self.get_string_array = tdecode(get_string,SECRET_KEY),split('@@')
+        self.get_string_array = tdecode(get_string,SECRET_KEY).split('@@')
         self.ModuleId = self.get_string_array[0]
         self.Hosts = self.get_string_array[1]
 
         sys_param_array = []
         for i in range(2,len(self.get_string_array)-1):
-            sys_param_array.append(sys_param_array[i])
+            sys_param_array.append(self.get_string_array[i])
 
         mid = 'Mid_' + self.ModuleId
         importstring = 'from '+mid+' import Modulehandle'

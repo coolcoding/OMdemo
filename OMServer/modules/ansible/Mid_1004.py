@@ -15,7 +15,7 @@ class Modulehandle():
                 pattern = self.hosts,
                 forks = FORKS,
                 module_name = 'command',
-                module_args = '/usr/bin/tail -'+self.sys_param_array[0]+' /var/log/messages').run()
+                module_args = '/sbin/lsmod',).run()
             if len(self.runnerRes['dark']) == 0 and len(self.runnerRes['contacted']) == 0:
                 return 'no hosts found,请确认已经添加ansible环境'
         except Exception,e:
