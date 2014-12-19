@@ -20,7 +20,7 @@ class ServerFunCateg(models.Model):
     id = models.IntegerField(primary_key=True, db_column='ID') # Field name made lowercase.
     server_categ_name = models.CharField(max_length=60)
     class Meta:
-        db_tale = u'server_fun_categ'
+        db_table = u'server_fun_categ'
 
 
 class ServerList(models.Model):

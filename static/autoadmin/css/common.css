@@ -105,7 +105,7 @@ div{
 	width: 199px;
 }
 #left_content #user_info {
-	background-image: url(/static/images/manage_r2_c1.jpg);
+	background-image: url(/static/autoadmin/images/manage_r2_c1.jpg);
 	background-repeat: no-repeat;
 	height: 55px;
 	padding: 10px 0 0 55px;
@@ -115,7 +115,7 @@ div{
 }
 #left_content #main_nav {
 	width: 199px;
-	background-image: url(/static/images/left_nav_bg.jpg);
+	background-image: url(/static/autoadmin/images/left_nav_bg.jpg);
 	background-repeat: repeat-y;
 }
 #left_main_nav {
@@ -131,12 +131,12 @@ div{
 	padding: 7px 6px 0 7px;
 }
 .left_back{
-	background-image: url(/static/images/manage_r7_c2.jpg);
+	background-image: url(/static/autoadmin/images/manage_r7_c2.jpg);
 	background-repeat: no-repeat;
 	cursor:pointer;
 }
 .left_back_onclick{
-	background-image: url(/static/images/manage_r6_c2.jpg);
+	background-image: url(/static/autoadmin/images/manage_r6_c2.jpg);
 	background-repeat: no-repeat;
 	color:#333333;
 }
@@ -159,7 +159,7 @@ div{
 	text-align: left;
 }
 .list_tilte {
-	background-image: url(/static/images/list_title.gif);
+	background-image: url(/static/autoadmin/images/list_title.gif);
 	background-repeat: no-repeat;
 	margin: 0 auto;
 	clear: both;
@@ -172,7 +172,7 @@ div{
 	cursor:pointer;
 }
 .list_tilte_onclick {
-	background-image: url(/static/images/list_title_onclick.gif);
+	background-image: url(/static/autoadmin/images/list_title_onclick.gif);
 	background-repeat: no-repeat;
 	margin: 0 auto;
 	clear: both;
@@ -188,7 +188,7 @@ div{
 	margin: 0 auto;
 }
 .list_detail li{
-	list-style-image: url(/static/images/direct_blue.gif);
+	list-style-image: url(/static/autoadmin/images/direct_blue.gif);
 	list-style-position: inside;
 	padding: 0 0 0 4px;
     }
@@ -203,7 +203,7 @@ div{
 #nav {
 	width:99%;
 	float:left;
-	background-image: url(/static/images/nav_bg.jpg);
+	background-image: url(/static/autoadmin/images/nav_bg.jpg);
 }
 #nav ul { 
       margin:0; 
@@ -218,17 +218,17 @@ div{
 	 font-weight:bold;
 }
 .bg_image{
-	 background: url(/static/images/manage_r2_c14.jpg) no-repeat;
+	 background: url(/static/autoadmin/images/manage_r2_c14.jpg) no-repeat;
 	 cursor:pointer;
 }
 .bg_image_onclick{
-	 background: url(/static/images/manage_r2_c13.jpg) no-repeat;
+	 background: url(/static/autoadmin/images/manage_r2_c13.jpg) no-repeat;
 	 color:#0099CC;
 }
 #sub_info {
 	width: 99%;
 	float:left;
-	background-image: url(/static/images/manage_r3_c11.jpg);
+	background-image: url(/static/autoadmin/images/manage_r3_c11.jpg);
 	border-right-width: 1px;
 	border-bottom-width: 1px;
 	border-left-width: 1px;
@@ -297,7 +297,7 @@ div{
 
 #sys_login_button {
 	border:0px;
-	background-image: url(/static/images/login/login_r11_c4.jpg);
+	background-image: url(/static/autoadmin/images/login/login_r11_c4.jpg);
 	font-weight:bold;
 	font-size:15px;
 	height: 41px;
@@ -449,7 +449,7 @@ text-indent: 2px; //option在FF等非IE浏览器缩进2px
 #sys_run_button {
 	border:0px;
 	color:#ffffff;
-	background-image: url(/static/images/120.gif);
+	background-image: url(/static/autoadmin/images/120.gif);
 	font-weight:bold;
 	font-size:15px;
 	height: 31px;
@@ -459,7 +459,7 @@ text-indent: 2px; //option在FF等非IE浏览器缩进2px
 #sys_add_button {
 	border:0px;
 	color:#ffffff;
-	background-image: url(/static/images/116.gif);
+	background-image: url(/static/autoadmin/images/116.gif);
 	font-weight:bold;
 	font-size:15px;
 	height: 31px;

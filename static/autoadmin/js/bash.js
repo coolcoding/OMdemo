@@ -211,9 +211,9 @@ function submitleave3(currvalue)
         var soojs_value=objarray[1].split(","); 
         var soojs_text=objarray[0].split(","); 
 	    for ( var i=0;i<soojs_value.length;i++){
-	    	var oOption= document.createElement("OPTION");  
-    	 	oOption.value=soojs_value[i];  
-     		oOption.text=soojs_text[i];  
+	    	var oOption   = document.createElement("OPTION");
+	    	oOption.value = soojs_value[i];
+	    	oOption.text  = soojs_text[i];
      		document.systemForm.serverApplist.options.add(oOption);
 		}
 	}
@@ -449,7 +449,6 @@ function loadmoduleinfo(currvalue)
 	function showResponse(originalRequest)
 	{		
 		eval("var resultString='"+originalRequest.responseText+"'"); 
-
 		var objarray=resultString.split("@@"); 
         var module_id=objarray[0];  //module id
         var module_name=objarray[1];  //module name

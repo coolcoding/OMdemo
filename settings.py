@@ -9,6 +9,8 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+INTERNAL_IPS = ('127.0.0.1','192.168.56.1',)
+
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -22,6 +24,7 @@ DATABASES = {
     }
 }
 
+DATABASE_ENGINE = DATABASES['default']['ENGINE']
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.4/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
@@ -85,6 +88,20 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'o=!wlp@_fy4mne=n=(n)9(q*iyo^ch0e=b53iear*=5d^gx%dk'
 
+
+#debug_toolbar
+DEBUG_TOOLBAR_PANELS = (
+'debug_toolbar.panels.version.VersionDebugPanel',
+'debug_toolbar.panels.timer.TimerDebugPanel',
+'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
+'debug_toolbar.panels.headers.HeaderDebugPanel',
+'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
+'debug_toolbar.panels.template.TemplateDebugPanel',
+'debug_toolbar.panels.sql.SQLDebugPanel',
+'debug_toolbar.panels.signals.SignalDebugPanel',
+'debug_toolbar.panels.logger.LoggingPanel',
+)
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -98,6 +115,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -127,7 +145,8 @@ INSTALLED_APPS = (
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'autoadmin'
+    'debug_toolbar',
+    'autoadmin',
 )
 
 # A sample logging configuration. The only tangible logging
