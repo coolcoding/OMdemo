@@ -1,0 +1,32 @@
+{% extends "om/base.html" %}
+{% block selectdiv %}
+  <div class="select_border"> 
+    <div class="container">
+      <select name="modules" id="modules" onChange="loadmoduleinfo(this.value)" class="select">
+        <option value="-1">正在加载...</option>
+      </select>
+    </div>
+  </div>
+{% endblock %}
+{% block content %}
+      <td align="center">
+        <fieldset> 
+            <legend><span id="module_name"> ---模块操作区--- </span>[<img src='/static/autoadmin/images/02461211.gif' align='absmiddle' onmouseover="displayDIV('operate'); return false" onmouseout="hiddenDIV('operate'); return false">]
+            <div id="operate" style="filter:Alpha(opacity=90);display:none;position:absolute; top:155px; left:auto; width:400px;BORDER-RIGHT: 2px outset; BORDER-TOP: 1px outset; BACKGROUND: #eeeeee; BORDER-LEFT: 1px outset; BORDER-BOTTOM: 2px outset; text-align:left;"><table cellpadding="3" cellspacing="1"><tr><td id="module_caption"></td></tr></table></div>
+            </legend>
+              <table width="90%" height="30"  border="0" cellpadding="3" cellspacing="0">
+                <tr>
+                  <td width="60%"><div id="module_extend"></div></td>
+                  <td align="center">
+                  <input type="button" name="Submit_run" value="运  行" id="sys_run_button" onClick="return submitmodule();"> 
+                  <input type="button" name="Submit_ref" value="刷  屏" id="sys_run_button" onClick="javascript:$('placeholder').innerHTML ='';">
+                  <input type="button" name="Submit_add" value="添加模块" id="sys_add_button" onClick="javascript:window.location.href='/autoadmin/module_add/';">
+                  <input type="button" name="Submit_add" value="安全审计" id="sys_add_button" onClick="javascript:window.location.href='/omaudit/';">
+                  </td>
+                </tr>
+              </table>
+        </fieldset>       
+      </td>
+    </tr>
+  </td>
+{% endblock %}

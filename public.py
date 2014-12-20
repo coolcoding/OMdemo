@@ -36,13 +36,16 @@ def tdecode(data, key, decode=base64.b64decode, salt_length=16):
     salt = data[:salt_length]
     return crypt(data[salt_length:], sha1(key + salt).digest())
     
-def target_host(hosts,target_type='HN'):
-    target_string = ""
-    hosts_string = ""
-    for hrow in hosts.split(','):
-        if target_type=="HN":
-            hosts_string += hrow.split('*')[1]+";"
-        elif target_type=="IP":
-            hosts_string += hrow.split('*')[0]+";"
-    target_string=hosts_string[0:len(hosts_string)-1]
-    return target_string
+
+
+def target_host(hosts,target_type='IP'):
+    host_string = ''
+    if target_type == 'IP':
+        for hrow in hosts.split(','):
+            host_string+=hrow.split('*')[0]+';'
+    elif target_type == 'HN':
+        for hrow in hosts.split(','):
+            host_string+=hrow.split('*')[1]+';'
+    return host_string[:len(host_string)-1]
+
+

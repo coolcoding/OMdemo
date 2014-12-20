@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{sys_name}}</title>
+<meta  name="keywords" content="{{system_name}} " />
+<link href="/static/autoadmin/css/common.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="/static/autoadmin/js/prototype.js"></script>
+<script language="javascript" charset="utf-8" src="/static/autoadmin/js/ymPrompt.js"></script>
+<link href="/static/autoadmin/css/skin/black/ymPrompt.css" rel="stylesheet" type="text/css">
+<script language="javascript" charset="utf-8" src="/static/autoadmin/js/bash.js"></script>
+</head>
+<body onload="hiddenDIV('operate');">
+<div id="systemWorking" style="z-index:100; position:absolute;display:none;left:40%;top:40%"><table width="250" height="20" border="0" cellpadding="0" cellspacing="1" ><tr><td align="center" valign="middle"><img src="/static/autoadmin/images/loading.gif" align=center></td></tr></table></div>
+<table class="top_bottom" cellpadding="3" cellspacing="1">
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" width="35%"><div align="center"><font class="baner_font">OMdemo</font>
+    </div></td>
+    <td align="left" width="65%">
+{% block selectdiv %} {% endblock %}
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+</table>
+
+<table width="200" height="64" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<table height="500" width="500" border="0" align="center" cellpadding="3" cellspacing="0" id="maintables">
+ <form action="" method="get" name="systemForm">
+  <tr bgcolor="#eeeeee">
+  <td width="150" rowspan="3" valign="top" bgcolor="#eeeeee">
+
+  <table width="99%"  border="0" cellspacing="1" cellpadding="0">
+    <tr>
+      <td>
+      <select name="serverclass" id="serverclass" onChange="submitleave2(this.value)" class="sys_server_select" size="8">
+        <option value="-1">正在加载...</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  
+      <select name="serverAppclass" id="serverAppclass" onChange="submitleave3(this.value)" class="sys_server_select" size="8" multiple>
+      <option value="-1">请选择应用类别</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br>
+        <select name="serverApplist" size="15" multiple class="sys_server_select" id="serverApplist" style="font-weight:bold; ">
+      </select>
+      </td>
+    </tr>
+  </table>
+  
+  </td>
+{% block content %} {% endblock %}
+  </tr>
+  <tr>
+    <td height="1" valign="top" bgcolor="#eeeeee"></td>
+  </tr>
+  <tr>
+    <td valign="top" align="center" bgcolor="#eeeeee">
+    <table width="95%" border="0" cellspacing="3" cellpadding="0" bgcolor="#000000">
+      <tr>
+        <td align="left">
+        <font class="ajaxmodulerunresult">[user@omserver]# <img src='/static/autoadmin/images/cursor_f01.gif' align='absmiddle'></font><br>
+        <div class="ajaxmodulerunresult" id="placeholder" style="height:430px;OVERFLOW-y:auto;font-family: Verdana, Arial,Vrinda,Tahoma;"></div>    
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <input type="hidden" name="ModuleID" id="ModuleID" value="">
+  <input type="hidden" name="LastID" id="LastID" value="0">
+  <input type="hidden" name="ModuleName" id="ModuleName" value="">
+  </form>
+</table>
+<br>
+<table class="down_bottom" cellpadding="3" cellspacing="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+ <script language="javascript">
+    submitleavel();
+    loadmodule();
+ </script>
+</html>

@@ -315,7 +315,7 @@ function submitmodule()
 function submitaudit()
 {
 	//$('placeholder').innerHTML ="";
-	urlpar=""
+	urlpar="";
 	if ($F('serverApplist')!=null && $F('serverApplist')!="")
 	{
 		serverappvalue=$F('serverApplist');
@@ -324,6 +324,7 @@ function submitaudit()
 		serverappvalue=""
 	    
 	var url = '/omaudit/omaudit_run/?LastID='+$F("LastID")+'&hosts='+serverappvalue;
+//    alert(url)
 	var myAjax = new Ajax.Request(
 	url,
 	{
@@ -333,16 +334,15 @@ function submitaudit()
 	function showResponse(originalRequest)
 	{		
 		eval("var resultString='"+originalRequest.responseText+"'"); 
-        alert(resultString)
+        if (resultString == '@@')
+        {
+            return false;
+        }
+//        alert(resultString);
 		var	soojs_history_string="";
 		var objarray=resultString.split("@@"); 
 
         var soojs_historys=objarray[0].split("*");
-		if (soojs_historys.length==1)
-		{
-			return false;	
-			}
-
         var soojs_lastid=objarray[1]; 
 		document.getElementById("LastID").value = soojs_lastid
 		for ( var i=0;i<soojs_historys.length;i++){
@@ -352,17 +352,24 @@ function submitaudit()
 	}
 }
 
+var intervalid = ''
+
 function setIntervalAudit()
 {
-	timeId = setInterval("submitaudit();",3000);
-	if ($F('sys_run_button')=="停止监视")
+	if ($F('sys_run_button_flag') == 'true')
 	{
-		clearTimeout(timeId);
-		document.getElementById("sys_run_button").value ="开始监视";
+//        alert($F('sys_run_button_flag'));
+		document.getElementById("sys_run_button").value ="停止监视";
+		document.getElementById("sys_run_button_flag").value ="false";
+	    intervalid = setInterval("submitaudit()",3000);
 	}
 	else
 	{
-		document.getElementById("sys_run_button").value ="停止监视";
+		document.getElementById("sys_run_button_flag").value ="true";
+//        alert($F('sys_run_button_flag'));
+        window.clearInterval(intervalid);
+//        alert(intervalid);
+		document.getElementById("sys_run_button").value ="开始监视";
 	}
 }
 
@@ -404,7 +411,11 @@ function displayDIV(el) {
 }
 
 function hiddenDIV(el) {
-	whichEl = document.getElementById(el)
+	if (document.getElementById(el) == null)
+    {
+        return false;
+    }
+    whichEl = document.getElementById(el);
 	whichEl.style.display   = 'none';
 }
 
@@ -412,6 +423,10 @@ function hiddenDIV(el) {
 //加载操作模块菜单;
 function loadmodule()
 {
+    if (document.getElementById('modules') == null)
+    {
+        return false;
+    }
 	var url = '/autoadmin/module_list/';
 	var myAjax = new Ajax.Request(
 	url,

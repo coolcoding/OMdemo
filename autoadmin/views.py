@@ -9,7 +9,7 @@ from django.utils.log import logger
 
 def index(request):
     d = {'sys_name': 'python auto operation system'}
-    return render_to_response('autoadmin/index.html', d)
+    return render_to_response('om/autoadmin.html')
 
 
 
